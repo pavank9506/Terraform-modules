@@ -22,3 +22,43 @@ variable "common_tags" {
 variable "vpc_tags" {
     default = {}
 }
+
+variable "igw_tags" {
+    default = {}
+}
+
+variable "private_subnet_cidrs" {
+    type = list
+}
+
+variable "public_subnet_cidrs" {
+    type = list
+}
+
+variable "public_subnet_cidrs" {
+    type = list
+}
+
+variable "database_subnet_tags" {
+    default = {}
+}
+
+variable "db_subnet_group_tags" {
+    default = {}
+}
+
+variable "nat_gateway_tags" {
+    default = {}
+}
+
+variable "public_route_table_tags" {
+    default = {}
+}
+
+variable "private_route_table_tags" {
+    default = {}
+}
+
+variable "database_route_table_tags" {
+    default = {}
+}
