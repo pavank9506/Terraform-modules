@@ -1,7 +1,5 @@
 # Terraform AWS VPC Module Customised
 
-
-
 This module is going to create the following resources.
 
 * VPC
