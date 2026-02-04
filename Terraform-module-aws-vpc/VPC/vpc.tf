@@ -151,7 +151,8 @@ resource "aws_route_table_association" "database" {
 }
 
 resource "aws_security_group" "allow_ssh_terraform" {
-    name        = "dynamic_demo" #allow_ssh is already there in my account
+    name        = var.sg #allow_ssh is already there in my account
+    vpc_id     = aws_vpc.main.id
     description = "Allow port number 22 for SSH access"
 
     # usually we allow everything in egress
