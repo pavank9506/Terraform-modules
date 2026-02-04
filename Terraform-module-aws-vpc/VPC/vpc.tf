@@ -11,18 +11,6 @@ resource "aws_vpc" "main" {
   )
 }
 
-resource "aws_internet_gateway" "main" {
-  vpc_id = aws_vpc.main.id
-
-  tags = merge(
-    var.common_tags,
-    var.igw_tags,
-    {
-        Name = local.resource_name
-    }
-  )
-}
-
 resource "aws_subnet" "private" {
   vpc_id     = aws_vpc.main.id
   cidr_block = var.private_subnet_cidrs
@@ -58,6 +46,18 @@ resource "aws_subnet" "database" {
     var.database_subnet_tags,
     {
         Name = "${local.resource_name}-database"
+    }
+  )
+}
+
+resource "aws_internet_gateway" "main" {
+  vpc_id = aws_vpc.main.id
+
+  tags = merge(
+    var.common_tags,
+    var.igw_tags,
+    {
+        Name = local.resource_name
     }
   )
 }
