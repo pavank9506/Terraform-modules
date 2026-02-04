@@ -175,7 +175,11 @@ resource "aws_security_group" "allow_ssh_terraform" {
         }
     }
 
-    tags = {
-        Name = "allow_sshh"
+     tags = merge(
+    var.common_tags,
+    var.private_route_table_tags,
+    {
+      Name = "${local.resource_name}-sg
     }
+  )
 }
